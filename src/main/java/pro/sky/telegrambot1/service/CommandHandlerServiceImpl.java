@@ -1,6 +1,7 @@
 package pro.sky.telegrambot1.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import pro.sky.telegrambot1.util.MessageUtil;
 public class CommandHandlerServiceImpl implements CommandHandlerService {
     private final NotificationTaskService notificationTaskService;
     private final BotConfig config;
+
 
     private static final String START_COMMAND = "/start";
     private static final String HELP_COMMAND = "/help";

@@ -6,22 +6,21 @@ import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
 import com.pengrad.telegrambot.response.SendResponse;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 import pro.sky.telegrambot1.service.CommandHandlerService;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class TelegramBotUpdatesListener implements UpdatesListener {
     private final Logger logger = LoggerFactory.getLogger(TelegramBotUpdatesListener.class);
 
-    private final TelegramBot telegramBot;
     private final CommandHandlerService commandHandlerService;
-
-    public TelegramBotUpdatesListener(TelegramBot telegramBot, CommandHandlerService commandHandlerService) {
-        this.telegramBot = telegramBot;
-        this.commandHandlerService = commandHandlerService;
-    }
+    private final TelegramBot telegramBot;
 
     @PostConstruct
     public void init() {
